@@ -24,6 +24,11 @@ Note:
 This code relies on external CSV market data files which are not included in
 the repository. If needed, feel free to contact me by email and I will gladly
 provide sample datasets to run the script.
+
+
+This example uses bid/ask prices, so spread is implicitly taken into account.
+Commission and slippage modelling are intentionally omitted here to keep the
+example concise and focused on engine structure.
 """
 import time
 import pandas as pd

@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 """
-Example of a systematic FX/CFD backtesting engine written in Python.
+Example of a systematic FX backtesting engine written in Python.
 
 This script:
 - loads bid/ask OHLC market data on two timeframes
@@ -13,17 +13,19 @@ This script:
 - reports basic performance statistics
 
 The trading strategy used here is intentionally simple and only serves as an
-illustrative example. The goal of this code sample is primarily to demonstrate
-the structure of the backtesting engine and how market data, signals, execution
-logic and performance evaluation are handled in Python.
+illustrative example. The goal of this code sample is to demonstrate how market
+data, signal generation, execution logic and performance evaluation can be
+structured in a systematic trading research workflow.
 
 This repository was created as part of a job application to showcase my Python
 and systematic trading development work.
 
-Note:
-The repository includes the four CSV files required to run the script.
-These files are Dukascopy bid/ask OHLC market data samples used for
-demonstration purposes.
+Notes:
+- Bid/ask prices are used so spread is implicitly taken into account.
+- Commission and slippage modelling are intentionally omitted to keep the
+  example concise and focused on the backtesting engine structure.
+- The repository includes four sample CSV files containing Dukascopy bid/ask
+  OHLC market data required to run the script.
 """
 
 

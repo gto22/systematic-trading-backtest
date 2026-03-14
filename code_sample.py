@@ -2,7 +2,7 @@
 from __future__ import annotations
 
 """
-Example of a systematic FX backtesting engine written in Python.
+Example of a systematic FX / index backtesting engine written in Python.
 
 This script:
 - loads bid/ask OHLC market data on two timeframes

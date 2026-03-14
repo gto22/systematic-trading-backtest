@@ -21,15 +21,12 @@ This repository was created as part of a job application to showcase my Python
 and systematic trading development work.
 
 Note:
-This code relies on external CSV market data files which are not included in
-the repository. If needed, feel free to contact me by email and I will gladly
-provide sample datasets to run the script.
-
-
-This example uses bid/ask prices, so spread is implicitly taken into account.
-Commission and slippage modelling are intentionally omitted here to keep the
-example concise and focused on engine structure.
+The repository includes the four CSV files required to run the script.
+These files are Dukascopy bid/ask OHLC market data samples used for
+demonstration purposes.
 """
+
+
 import time
 import pandas as pd
 import pandas_ta as ta
@@ -42,23 +39,27 @@ import pandas_ta as ta
 SYMBOL = "EURUSD"
 CAPITAL_INITIAL = 100_000.0
 
-SIGNAL_BID_PATH = "EURUSD_10 Mins_Bid_2024.12.28_2026.01.05.csv"
-SIGNAL_ASK_PATH = "EURUSD_10 Mins_Ask_2024.12.28_2026.01.05.csv"
-EXEC_BID_PATH = "EURUSD_1 Min_Bid_2024.12.28_2026.01.05.csv"
-EXEC_ASK_PATH = "EURUSD_1 Min_Ask_2024.12.28_2026.01.05.csv"
+SIGNAL_BID_PATH = "data/EURUSD_10 Mins_Bid_sample.csv"
+SIGNAL_ASK_PATH = "data/EURUSD_10 Mins_Ask_sample.csv"
+EXEC_BID_PATH = "data/EURUSD_1 Min_Bid_sample.csv"
+EXEC_ASK_PATH = "data/EURUSD_1 Min_Ask_sample.csv"
+
 
 ENTRY_DELAY_MINUTES = 10
 RISK_PERCENT = 0.005
 
+# Demo parameters chosen so the sample dataset generates a few trades quickly.
+
+
 RSI_LEN = 5
-RMA_LEN = 500
+RMA_LEN = 50
 ATR_LEN = 14
 
 RSI_LONG_MAX = 25
 RSI_SHORT_MIN = 75
 
-SL_ATR_MULT = 2
-TP_ATR_MULT = 5
+SL_ATR_MULT = 1
+TP_ATR_MULT = 1
 
 CONTRACT_SIZE = 100_000.0  # EURUSD standard lot
 MIN_LOT = 0.01
@@ -249,7 +250,7 @@ class Strategy:
             & green
             & prev_red
             & (prev_rsi < self.rsi_long_max)
-            & (prev_slope > 0.00003),
+            & (prev_slope > 0.00001),
             "signal",
         ] = "LONG"
 
@@ -258,7 +259,7 @@ class Strategy:
             & red
             & prev_green
             & (prev_rsi > self.rsi_short_min)
-            & (prev_slope < -0.00003),
+            & (prev_slope < -0.00001),
             "signal",
         ] = "SHORT"
 
@@ -417,7 +418,6 @@ class Indicators:
             )
 
         
-
 # =============================================================================
 # Backtest engine
 # =============================================================================
@@ -694,7 +694,6 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
 
 
 

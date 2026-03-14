@@ -1,6 +1,6 @@
 # Systematic Trading Backtest Example
 
-This repository contains a simplified example of a systematic FX/CFD backtesting engine written in Python.
+This repository contains a simplified example of a systematic FX / index backtesting engine written in Python.
 This example uses bid/ask prices, so spread is implicitly taken into account.
 Commission and slippage modelling are intentionally omitted here to keep the example concise and focused on engine structure.
 

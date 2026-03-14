@@ -6,6 +6,16 @@ Commission and slippage modelling are intentionally omitted here to keep the exa
 
 The goal of this code sample is to illustrate how market data, signals, execution logic and performance evaluation can be structured in a systematic trading research workflow.
 
+## Run the example
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Then run the script:
+
+python backtest.py
+
 ## Features
 
 - bid/ask OHLC market data handling

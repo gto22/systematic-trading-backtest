@@ -33,9 +33,11 @@ The main purpose of the code is to demonstrate the structure of the backtesting 
 
 ## Data
 
-The script relies on external CSV market data files which are not included in the repository.
+The repository includes four sample CSV files located in the `data/` folder.
 
-If needed, sample datasets used to run the script can be provided upon request.
+These files contain Dukascopy bid/ask OHLC market data used to run the example backtest.
+
+They are provided only for demonstration purposes.
 
 ## Purpose
 
